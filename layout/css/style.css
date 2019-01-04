@@ -1,0 +1,246 @@
+body{
+    height: 6000px;
+    margin: 0;
+    padding: 0;
+}
+header .overlay {
+    position: relative;
+}
+header .overlay .kok {
+    position:fixed;
+    bottom: 0;
+    right: 0;
+    cursor: pointer;
+    z-index:999 !important;
+}
+
+.overlay{
+background-color: #6c757d;
+    width: 100%;
+    height: 100vh;
+    position: absolute;
+    opacity: .4;
+}
+.navbar-light .navbar-brand,
+.navbar-light .navbar-nav .active>.nav-link,
+.navbar-light .navbar-nav .nav-link.active,
+.navbar-light .navbar-nav .nav-link.show,
+.navbar-light .navbar-nav .show>.nav-link,
+.navbar-light .navbar-nav .nav-link
+{
+    color: white;
+}
+header .navbar-light .navbar-nav .nav-link:focus,
+.navbar-light .navbar-nav .nav-link:hover,
+.navbar-light .navbar-brand:focus,
+.navbar-light .navbar-brand:hover
+{
+    color: red;
+}
+header{
+    background-image: url("../img/header-img.jpg");
+    -webkit-background-size: cover;
+    -o-background-size: cover;
+    -moz-background-size: cover;
+    background-size: cover;
+    height: 100vh;
+    color: white;
+}
+header .text-center{
+    padding-top: 250px;
+}
+header .text-center h1{
+    font-size: 40px;
+}
+header .text-center p:last-of-type{
+    font-size: 30px;
+}
+header .text-center .btn-primary{
+    margin-top: 30px;
+    width: 150px;
+    background-color: red;
+}
+/*header .koko{
+margin: 70px 0 0 1200px;
+}*/
+    /*start Artical*/
+.artical{
+    padding: 60px 0 60px 0;
+}
+.artical .container .art .arti{
+    padding: 30px;
+}
+.artical .container .art .arti:hover{
+    color: #6c757d;
+    transition: 0.2s ease-in-out;
+    box-shadow:1px 1px 10px gainsboro , 1px 1px  gainsboro inset;
+
+}
+.artical .container .art h1{
+    font-size: 20px;
+    text-align: center;
+}
+/*End Artical*/
+
+/*start laoreet*/
+.laoreet{
+    background-image: url("../img/header-img.jpg");
+    -webkit-background-size: cover;
+    -o-background-size: cover;
+    -moz-background-size: cover;
+    background-size: cover;
+    height: 100vh;
+}
+.laoreet .container .head,
+.laoreet .container .lao{
+    color: white;
+}
+.laoreet .container .lao iframe{
+    margin-top: 20px;
+}
+.laoreet .container .lao .btn{
+    margin-top: 30px;
+}
+.laoreet .container .lao h5,
+.laoreet .container .lao p{
+    margin: 20px 0 0 0;
+    padding-top: 20px;
+}
+.laoreet .container h1{
+    padding-top: 100px;
+    text-align: center;
+}
+.laoreet .container h6{
+    display: block;
+    height: 2px;
+    width: 50px;
+    background-color: red;
+    margin-left: 550px;
+
+}
+/*end laoreet*/
+
+/*start gallary*/
+.gallery{
+    padding-top: 10px;
+}
+.gallery .photo-left:hover img {
+    opacity: 0.3;
+
+}
+.gallery .container  .middle{
+    transition: .5s ease;
+    opacity: 0;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    text-align: center;
+}
+.gallery .photo-left:hover .middle {
+    opacity: 1;
+}
+.gallery img{
+    height: 75vh;
+    border: none;
+}
+.gallery .photo-right img{
+    height: 37.5vh;
+    border: none;
+}
+/*End gallary*/
+
+/*Start section*/
+section{
+    padding-bottom: 80px;
+}
+
+section .container h1{
+    padding-top: 100px;
+    text-align: center;
+}
+section .container h6{
+    display: block;
+    height: 2px;
+    width: 50px;
+    background-color: red;
+    margin-left: 550px;
+}
+
+section .sec{
+    margin-top: 80px;
+}
+section .container .sec .price{
+    list-style: none;
+    box-shadow:1px 1px 10px gainsboro , 1px 1px  gainsboro inset;
+    padding:0 ;
+    text-align: center;
+    color:#929292;
+
+}
+section .container .sec .price-1{
+    padding-bottom: 20px;
+    color: #474747;
+}
+section .container .sec .price-1 strong{
+    font-size: 40px;
+}
+section .container .sec .price li
+{
+    padding-top: 20px;
+}
+section .container .sec .price .btn{
+    margin-top: 10px;
+    background-color: red;
+}
+section .container .sec .price .btn:hover{
+    background-color: white;
+    color: #6c757d;
+}
+section .container .sec .price .vul{
+    background-color:#2B2F32;
+    color: white;
+    padding: 20px;
+    text-align: center;
+
+}
+/*End section*/
+
+
+/*start counter*/
+.counter{
+    background-image:url("../img/tina-guina-639046-unsplash-min.jpg");
+    -webkit-background-size: cover;
+    -o-background-size: cover;
+    -moz-background-size: cover;
+    background-size: cover;
+    height:40vh;
+    text-align: center;
+    padding-top: 100px;
+    margin-bottom: 50px;
+    color: white;
+}
+/*End counter*/
+
+/*start slides*/
+.solider .carousel-item{
+    height: 75vh;
+    background-image: url("../img/emre-gencer-364602-unsplash-min.jpg");
+    -webkit-background-size: cover;
+    -o-background-size: cover;
+    -moz-background-size: cover;
+    background-size: cover;
+}
+.solider .carousel-caption img {
+    border-radius: 50%;
+    width: 150px;
+    height: 150px;
+    margin-bottom: 50px;;
+}
+/*End slides*/
+/*start footer*/
+.footer .foot{
+    background-color: #33363B;
+    color: white;
+}

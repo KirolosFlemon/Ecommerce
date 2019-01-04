@@ -1,0 +1,81 @@
+/*Start main ruls*/
+
+
+body{
+    background-color: #F4F4F4;
+    font-size: 16px;
+}
+
+
+/*End main ruls*/
+
+/*start login form */
+
+
+.login{
+    width: 300px;
+    margin: 100px auto;
+}
+.login h4{
+    color: #888;
+}
+.login input{
+    margin-bottom: 10px;
+}
+
+.login .form-control{
+    background-color: #E5E5E5;
+}
+.login .btn{
+    background-color: #008dde;
+}
+
+/* End login form */
+
+/* Start Bottstrap Edits */
+.navbar .navbar-brand,
+.collapse .navbar-nav .nav-link,
+.collapse .navbar-nav .nav-link
+{
+    color: white;
+}
+.navbar .navbar-brand:hover,
+.collapse .navbar-nav .nav-link:hover,
+.collapse .navbar-nav .dropdown-menu
+{
+    background-color: #3498db;
+}
+.collapse .navbar-nav {
+    border:none;
+}
+
+.collapse .navbar-nav .dropdown-menu .dropdown-item{
+    color:black;
+
+}
+
+.navbar-brand{
+font-size: 1em ; /* em Means Take Font Size From Body */
+}
+
+.dropdown-menu{
+    margin: 0;
+    border: none;
+    border-radius: 0;
+}
+/* End Bottstrap Edits */
+
+/*Start Member Page*/
+
+h1{
+    font-size: 50px;
+    margin-top: 10px;
+    font-weight: bold;
+    color: #666;
+}
+.form-group>label{
+    margin: 0;
+}
+
+
+/*End Member Page*/
