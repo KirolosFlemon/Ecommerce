@@ -16,10 +16,70 @@ if (isset($_SESSION['Usename'])) {
     }
     //Start Manage Page
     if ($do == 'Manage') {
-        echo 'Welcome You Are In Mange Category Page';
+        echo 'Welcome You Are In Mange Category Page <br>';
+        echo '<a href="members.php?do=Add">Add New Member</a>';
 
-        /* Start Edit Page*/
-    } elseif ($do == 'Edit') {
+    }elseif ($do=='Add') { //Add Member Page
+        ?>
+        <h1 class="text-center">Add New Member</h1>
+        <div class="container">
+            <form action="?do=Insert" method="POST">
+                <!--Start Username Field-->
+                <div class="form-group">
+                    <label class="col-sm-2 control-label">Username</label>
+                    <div class="col-lg-4 col-md-6 col-sm-2">
+                        <input type="text" name="username" class="form-control" autocomplete="off"
+                               placeholder="Your Username" required="required">
+                    </div>
+                </div>
+                <!--End Username Field-->
+
+                <!--Start Password Field-->
+                <div class="form-group">
+                    <label class="col-sm-2 control-label">Password</label>
+                    <div class="col-lg-4 col-md-6 col-sm-2">
+                        <input type="password" name="password" class="form-control" autocomplete="new-password"
+                               placeholder="Your Password" required>
+                    </div>
+                </div>
+                <!--End Password Field-->
+
+                <!--Start Email Field-->
+                <div class="form-group">
+                    <label class="col-sm-2 control-label">Email</label>
+                    <div class="col-lg-4 col-md-6 col-sm-2">
+                        <input type="email" name="email" class="form-control" autocomplete="off"
+                               placeholder="Your Email" required="required">
+                    </div>
+                </div>
+                <!--End Email Field-->
+
+                <!--Start Full Name Field-->
+                <div class="form-group">
+                    <label class="col-sm-2 control-label">Full Name</label>
+                    <div class="col-lg-4 col-md-6 col-sm-2">
+                        <input type="text" name="full" class="form-control" autocomplete="off"
+                               placeholder="Your FullName">
+                    </div>
+                </div>
+                <!--End Full Name Field-->
+
+                <!--Start Submit Field-->
+                <div class="form-group">
+                    <div class="col-sm-offset-2 col-sm-10">
+                        <input type="submit" value="Add Member" class="btn btn-primary btn-lg">
+                    </div>
+                </div>
+                <!--End Submit Field-->
+            </form>
+        </div>
+
+
+        <?php
+    }elseif ($do=='Insert'){/* Start Insert Page*/
+        echo $_POST['username'] . $_POST['password'] . $_POST['email'] . $_POST['full']; 
+
+    } elseif ($do == 'Edit') {/* Start Edit Page*/
 
         //Check If UserId Is Numerical & Get The Integer Value Of It
         $UserID = isset($_GET['UserID']) && is_numeric($_GET['UserID']) ? intval($_GET['UserID']) : 0;
@@ -94,20 +154,22 @@ if (isset($_SESSION['Usename'])) {
         echo "<h1 class='text-center'>Update Member</h1>";
         if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             //Get The Variables From The Form
-            $id=$_POST['UserID'];
-            $user=$_POST['username'];
-            $email=$_POST['email'];
-            $name=$_POST['full'];
+            $id = $_POST['UserID'];
+            $user = $_POST['username'];
+            $email = $_POST['email'];
+            $name = $_POST['full'];
 
             //password
             //Condition ? True :false;
-            $pass=empty($_POST['newpassword'])? $pass=$_POST['oldpassword']: $pass=sha1($_POST['newpassword']);
+            $pass = empty($_POST['newpassword']) ? $pass = $_POST['oldpassword'] : $pass = sha1($_POST['newpassword']);
+
+            //Validate The Form
 
             //Update The Database With This Info
             $stmt = $con->prepare("UPDATE users SET Username = ?, Email = ?,FullName = ?,Password = ? WHERE UserID = ?");
-            $stmt->execute(array($user,$email,$name,$pass,$id));
+            $stmt->execute(array($user, $email, $name, $pass, $id));
             //Echo Success Message
-            echo $stmt->rowCount() .'Record Update';
+            echo $stmt->rowCount() . 'Record Update';
 
         } else {
             echo 'Sorry You Can not Browse This Page';

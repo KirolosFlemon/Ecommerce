@@ -3,7 +3,7 @@ session_start();
 if (isset($_SESSION['Usename'])) {
     $pageTittle='Dashboard';
     include 'init.php';
-    print_r($_SESSION);
+    echo 'welcome';
     include $tpl . 'footer.inc';
 } else {
     echo 'you are not allow to view this page';
