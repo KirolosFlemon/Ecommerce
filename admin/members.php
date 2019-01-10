@@ -15,11 +15,78 @@ if (isset($_SESSION['Usename'])) {
         $do = 'Manage';
     }
     //Start Manage Page
-    if ($do == 'Manage') {
-        echo 'Welcome You Are In Mange Category Page <br>';
-        echo '<a href="members.php?do=Add">Add New Member</a>';
+    if ($do == 'Manage') { ?>
+        <h1 class="text-center">Manage Members</h1>
+        <div class="container">
 
-    }elseif ($do=='Add') { //Add Member Page
+            <div class="table-responsive">
+                <table class="main-table text-center table table-bordered">
+                    <tr>
+                        <td>#ID</td>
+                        <td>Username</td>
+                        <td>Email</td>
+                        <td>FullName</td>
+                        <td>Register Date</td>
+                        <td>Control</td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td>
+                            <a href="#" class="btn btn-success">Edit</a>
+                            <a href="#" class="btn btn-danger">Delete</a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td>
+                            <a href="#" class="btn btn-success">Edit</a>
+                            <a href="#" class="btn btn-danger">Delete</a>
+                        </td>                    </tr>
+                    <tr>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td>
+                            <a href="#" class="btn btn-success">Edit</a>
+                            <a href="#" class="btn btn-danger">Delete</a>
+                        </td>                    </tr>
+                    <tr>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td>
+                            <a href="#" class="btn btn-success">Edit</a>
+                            <a href="#" class="btn btn-danger">Delete</a>
+                        </td>                    </tr>
+                    <tr>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td>
+                            <a href="#" class="btn btn-success">Edit</a>
+                            <a href="#" class="btn btn-danger">Delete</a>
+                        </td>                    </tr>
+                </table>
+            </div>
+
+            <a href="members.php?do=Add" class="btn btn-primary"><i class="fa fa-plus"></i> Add New Member</a>
+        </div>
+
+    <?php } elseif ($do == 'Add') { //Add Member Page
         ?>
         <h1 class="text-center">Add New Member</h1>
         <div class="container">
@@ -76,8 +143,38 @@ if (isset($_SESSION['Usename'])) {
 
 
         <?php
-    }elseif ($do=='Insert'){/* Start Insert Page*/
-        echo $_POST['username'] . $_POST['password'] . $_POST['email'] . $_POST['full']; 
+    } elseif ($do == 'Insert') {/* Start Insert Page*/
+        if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+            echo "<h1 class='text-center'>Insert Member</h1>";
+            echo '<div class"container">';
+            //Get The Variables From The Form
+            $user = $_POST['username'];
+            $pass = $_POST['password'];
+            $email = $_POST['email'];
+            $name = $_POST['full'];
+
+            $hashPass = sha1($_POST['password']);
+
+            //Validate The Form
+
+            //Insert UserInfo in Database
+            $stmt = $con->prepare("INSERT INTO users 
+                                    (Username, Password, Email, FullName)
+                                     VALUES (:zuser, :zpass, :zmail, :zname)");
+            $stmt->execute(array(
+                'zuser' => $user,
+                'zpass' => $hashPass,
+                'zmail' => $email,
+                'zname' => $name,
+
+            ));
+            //Echo Success Message
+            echo $stmt->rowCount() . 'Record Inserted';
+
+        } else {
+            echo 'Sorry You Can not Browse This Page';
+        }
+        echo '</div>';
 
     } elseif ($do == 'Edit') {/* Start Edit Page*/
 

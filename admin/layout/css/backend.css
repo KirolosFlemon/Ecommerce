@@ -32,7 +32,7 @@ body{
 
 /* End login form */
 
-/* Start Bottstrap Edits */
+/* Start Bootstrap Edits */
 .navbar .navbar-brand,
 .collapse .navbar-nav .nav-link,
 .collapse .navbar-nav .nav-link
@@ -63,7 +63,7 @@ font-size: 1em ; /* em Means Take Font Size From Body */
     border: none;
     border-radius: 0;
 }
-/* End Bottstrap Edits */
+/* End Bootstrap Edits */
 
 /*Start Member Page*/
 
@@ -75,6 +75,11 @@ h1{
 }
 .form-group>label{
     margin: 0;
+}
+
+.table-responsive .main-table tr:first-child td{
+    background-color: #333;
+    color: #fff;
 }
 
 
